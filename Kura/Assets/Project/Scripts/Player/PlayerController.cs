@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using YG;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,8 +36,7 @@ public class PlayerController : MonoBehaviour
             oldMousePositionX = Input.mousePosition.x;            
         }
         if (Input.GetMouseButton(0) && !gameOver)
-        {
-            //transform.position += transform.forward * Time.deltaTime * speed;
+        {            
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             float deltaX = Input.mousePosition.x - oldMousePositionX;
             oldMousePositionX = Input.mousePosition.x;
@@ -63,9 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
             gameOverImege.gameObject.SetActive(true);
-            buttonPause.gameObject.SetActive(false);
-            //YandexGame.ResetSaveProgress(); // сбрасывает ВСЕ сохранения
-            //YandexGame.SaveProgress();
+            buttonPause.gameObject.SetActive(false);            
         }
     }
     private void OnTriggerEnter(Collider other)

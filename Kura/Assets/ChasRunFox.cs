@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,15 +7,13 @@ public class ChasRunFox : StateMachineBehaviour
     Transform player;
     float attackRange = 1;
     float chaseRange = 25;
-    //Transform chick;
-    //float chaseRangeChick = 10;
+    
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = 10;
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        //chick = GameObject.FindGameObjectWithTag("Chick").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;        
     }   
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -31,13 +27,6 @@ public class ChasRunFox : StateMachineBehaviour
         {
             animator.SetBool("isChasing", false);
         }
-
-        /*agent.SetDestination(chick.position);
-        float distanceChick = Vector3.Distance(animator.transform.position, chick.position);
-        if (distanceChick > chaseRangeChick)
-        {
-            animator.SetBool("isChasing", false);
-        }*/
     }   
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

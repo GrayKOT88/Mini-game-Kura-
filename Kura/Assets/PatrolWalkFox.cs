@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,11 +7,8 @@ public class PatrolWalkFox : StateMachineBehaviour
     float time;
     List<Transform> points = new List<Transform>();
     NavMeshAgent agent;
-
     Transform player;
-    float chaseRange = 25;
-    //Transform chick;
-    //float chaseRangeChick = 10;
+    float chaseRange = 25;    
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -25,8 +21,7 @@ public class PatrolWalkFox : StateMachineBehaviour
         agent = animator.GetComponent<NavMeshAgent>();
         agent.SetDestination(points[Random.Range(0, points.Count)].position);
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        //chick = GameObject.FindGameObjectWithTag("Chick").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;        
     }    
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -43,12 +38,7 @@ public class PatrolWalkFox : StateMachineBehaviour
         if(distance < chaseRange)
         {
             animator.SetBool("isChasing", true);
-        }
-        /*float distanceChick = Vector3.Distance(animator.transform.position, chick.position); //Chick
-        if (distanceChick < chaseRangeChick)
-        {
-            animator.SetBool("isChasing", true);
-        }*/
+        }        
     }    
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

@@ -1,5 +1,5 @@
 {
-  "idSave": 99,
+  "idSave": 115,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -11,6 +11,6 @@
     false
   ],
   "saveChick": 2,
-  "eatenChick": 3,
+  "eatenChick": 6,
   "recordSaveChick": 101
 }
