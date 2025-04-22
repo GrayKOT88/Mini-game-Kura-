@@ -33,11 +33,11 @@ public partial class SpawnManager : MonoBehaviour
     void SpawnFox()
     {
         Instantiate(foxPrefab, (_points[Random.Range(0, _points.Count)].position), foxPrefab.transform.rotation);
-        if(Progress.Instance.PlayerInfo.saveChick >= 50) 
+        if(Progress.PlayerData.saveChick >= 50) 
         {
             Instantiate(foxPrefab, (_points[Random.Range(0, _points.Count)].position), foxPrefab.transform.rotation);
         }
-        if(Progress.Instance.PlayerInfo.saveChick >= 100) 
+        if(Progress.PlayerData.saveChick >= 100) 
         {
             Instantiate(foxPrefab, (_points[Random.Range(0, _points.Count)].position), foxPrefab.transform.rotation);
         }

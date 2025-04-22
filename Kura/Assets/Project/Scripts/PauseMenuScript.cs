@@ -34,8 +34,8 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
-        Progress.Instance.PlayerInfo.eatenChick = 0;
-        Progress.Instance.PlayerInfo.saveChick = 0;
-        Progress.Instance.SaveData();
+        Progress.PlayerData.eatenChick = 0;
+        Progress.PlayerData.saveChick = 0;
+        Progress.SaveData();
     }
 }

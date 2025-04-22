@@ -762,30 +762,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596523505}
-  - component: {fileID: 596523504}
+  - component: {fileID: 596523506}
   m_Layer: 0
-  m_Name: Progress
+  m_Name: Data Initializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &596523504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596523503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69d88c6e3b38d1040a6a0916981eecfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInfo:
-    saveChick: 51
-    eatenChick: 0
-    recordSaveChick: 0
 --- !u!4 &596523505
 Transform:
   m_ObjectHideFlags: 0
@@ -801,6 +785,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &596523506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596523503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a51b9ae22ba82448d9d5ff69ad97b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerData: {fileID: 11400000, guid: 04db99bb92fbd0841b3d84880832d3c2, type: 2}
 --- !u!1 &669935158
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,8 +40,7 @@ public class Chick : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fox"))
-        {
-            //Destroy(gameObject);
+        {            
             _chickPool.ReturnObject(this);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             counter.UpdateScore(pointValue);

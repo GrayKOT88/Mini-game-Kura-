@@ -21,16 +21,16 @@ public class UIMenu : MonoBehaviour
         Gold.SetActive(false);
         Silver.SetActive(false);
         Bronze.SetActive(false);
-        if (Progress.Instance.PlayerInfo.saveChick >= 20)
+        if (Progress.PlayerData.saveChick >= 20)
         {
             Bronze.SetActive(true);
         }
-        if (Progress.Instance.PlayerInfo.saveChick >= 50)
+        if (Progress.PlayerData.saveChick >= 50)
         {
             Bronze.SetActive(false);
             Silver.SetActive(true);
         }
-        if (Progress.Instance.PlayerInfo.saveChick >= 100)
+        if (Progress.PlayerData.saveChick >= 100)
         {
             Silver.SetActive(false);
             Gold.SetActive(true);
@@ -38,8 +38,8 @@ public class UIMenu : MonoBehaviour
     }
     void CountText()
     {
-        chickCountText.text = " " + Progress.Instance.PlayerInfo.saveChick;
-        foxCountText.text = " " + Progress.Instance.PlayerInfo.eatenChick;
-        recordCountText.text = " " + Progress.Instance.PlayerInfo.recordSaveChick;
+        chickCountText.text = " " + Progress.PlayerData.saveChick;
+        foxCountText.text = " " + Progress.PlayerData.eatenChick;
+        recordCountText.text = " " + Progress.PlayerData.recordSaveChick;
     }
 }

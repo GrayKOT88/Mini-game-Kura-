@@ -17,9 +17,9 @@ public class Counter : MonoBehaviour
     AudioSource playerAudio;
     void Start()
     {
-        Count = Progress.Instance.PlayerInfo.saveChick;
+        Count = Progress.PlayerData.saveChick;
         CounterText.text = " " + Count;
-        CountFox = Progress.Instance.PlayerInfo.eatenChick;
+        CountFox = Progress.PlayerData.eatenChick;
         CounterTextFox.text = " " + CountFox;        
         playerAudio = GetComponent<AudioSource>();
         Medal();
@@ -28,8 +28,8 @@ public class Counter : MonoBehaviour
     {
         CountFox += scoreToAdd;
         CounterTextFox.text = " " + CountFox;
-        Progress.Instance.PlayerInfo.eatenChick = CountFox;
-        Progress.Instance.SaveData();
+        Progress.PlayerData.eatenChick = CountFox;
+        Progress.SaveData();
     }   
     private void OnTriggerEnter(Collider other)
     {
@@ -40,17 +40,17 @@ public class Counter : MonoBehaviour
             playerAudio.PlayOneShot(pointSound, 1);
             Destroy(other.gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            Progress.Instance.PlayerInfo.saveChick = Count;
+            Progress.PlayerData.saveChick = Count;
             Medal();
             AddNewScores();
-            Progress.Instance.SaveData();            
+            Progress.SaveData();            
         }
     }
     public void AddNewScores()
     {
-        if (Count > Progress.Instance.PlayerInfo.recordSaveChick)
+        if (Count > Progress.PlayerData.recordSaveChick)
         {
-            Progress.Instance.PlayerInfo.recordSaveChick = Count;
+            Progress.PlayerData.recordSaveChick = Count;
             YandexGame.NewLeaderboardScores("saveChick", Count);
         }        
     }
@@ -59,16 +59,16 @@ public class Counter : MonoBehaviour
         Gold.SetActive(false);
         Silver.SetActive(false);
         Bronze.SetActive(false);
-        if (Progress.Instance.PlayerInfo.saveChick >= 20)
+        if (Progress.PlayerData.saveChick >= 20)
         {
             Bronze.SetActive(true);
         }
-        if (Progress.Instance.PlayerInfo.saveChick >= 50)
+        if (Progress.PlayerData.saveChick >= 50)
         {
             Bronze.SetActive(false);
             Silver.SetActive(true);
         }
-        if (Progress.Instance.PlayerInfo.saveChick >= 100)
+        if (Progress.PlayerData.saveChick >= 100)
         {
             Silver.SetActive(false);
             Gold.SetActive(true);

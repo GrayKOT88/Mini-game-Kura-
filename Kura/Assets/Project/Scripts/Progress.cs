@@ -1,48 +1,34 @@
 using UnityEngine;
 using YG;
 
-[System.Serializable]
-public class PlayerInfo
+public class Progress
 {
-    public int saveChick;
-    public int eatenChick;
-    public int recordSaveChick;
-}
-public class Progress : MonoBehaviour
-{
-    public PlayerInfo PlayerInfo;
-      
-    public static Progress Instance;
-    
-    private void Start()
+    private static PlayerDataSO _playerData;
+    public static PlayerDataSO PlayerData
     {
-        LoadData();       
+        get
+        {
+            if (_playerData == null)
+                LoadData();
+            return _playerData;
+        }
+        set => _playerData = value;
     }
-    private void Awake()
+    public static void SaveData()
     {
-        if (Instance == null)
-        {
-            transform.parent = null;
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-            
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }   
-    public void SaveData()
-    {
-        YandexGame.savesData.saveChick = PlayerInfo.saveChick;
-        YandexGame.savesData.eatenChick = PlayerInfo.eatenChick;
-        YandexGame.savesData.recordSaveChick = PlayerInfo.recordSaveChick;
+        YandexGame.savesData.saveChick = _playerData.saveChick;
+        YandexGame.savesData.eatenChick = _playerData.eatenChick;
+        YandexGame.savesData.recordSaveChick = _playerData.recordSaveChick;
         YandexGame.SaveProgress();       
     }
-    public void LoadData()
+    public static void LoadData()
     {
-        PlayerInfo.saveChick = YandexGame.savesData.saveChick;
-        PlayerInfo.eatenChick = YandexGame.savesData.eatenChick;
-        PlayerInfo.recordSaveChick = YandexGame.savesData.recordSaveChick;
+        if (_playerData == null)
+        {
+            _playerData = Resources.Load<PlayerDataSO>("PlayerData");
+        }
+        _playerData.saveChick = YandexGame.savesData.saveChick;
+        _playerData.eatenChick = YandexGame.savesData.eatenChick;
+        _playerData.recordSaveChick = YandexGame.savesData.recordSaveChick;
     }    
 }
