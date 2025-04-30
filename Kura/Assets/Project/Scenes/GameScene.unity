@@ -15706,6 +15706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1380993198}
   - component: {fileID: 1380993197}
+  - component: {fileID: 1380993199}
   m_Layer: 0
   m_Name: Object Pool
   m_TagString: Untagged
@@ -15742,6 +15743,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380993199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380993196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebe68e45a8b6dd4ebae681a895af175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabExplosionRed: {fileID: 2382221037670123813, guid: 0de551c89517a494ebe507415bcdaf51, type: 3}
 --- !u!4 &1381813524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6545928894501091904, guid: ad7194aa8031aa74d9226754ef39fadc, type: 3}
