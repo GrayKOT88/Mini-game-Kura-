@@ -22,9 +22,7 @@ public class ExplosionRedPool : MonoBehaviour, IObjectPool<ExplosionRed>
 
     private void ExpandPool()
     {
-        ExplosionRed explosionRed = Instantiate( _prefabExplosionRed, transform);
-        //explosionRed.gameObject.SetActive(false);
-        //_explosionRedPool.Enqueue(explosionRed);
+        ExplosionRed explosionRed = Instantiate( _prefabExplosionRed, transform);        
         ReturnObject(explosionRed);
         explosionRed.Initialize(this);
     }

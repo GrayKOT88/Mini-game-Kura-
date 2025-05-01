@@ -4596,7 +4596,7 @@ MonoBehaviour:
   gameOverImege: {fileID: 1317112572}
   buttonPause: {fileID: 1692385883}
   kura: {fileID: 8300000, guid: 4f34b1a62a020834db2c7cdd9bac5398, type: 3}
-  explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
+  _explosionRedPool: {fileID: 1380993199}
   maxHealth: 3
   currentHealth: 0
   healthBar: {fileID: 1842220200}
@@ -10388,7 +10388,7 @@ MonoBehaviour:
   Bronze: {fileID: 1198662471}
   CounterText: {fileID: 1368876979}
   CounterTextFox: {fileID: 1129629665}
-  explosionParticle: {fileID: 3199346384015752365, guid: 307229a5540374aae98859caad2128a3, type: 3}
+  _chickPool: {fileID: 1380993197}
   pointSound: {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
 --- !u!54 &938997853
 Rigidbody:
@@ -15728,6 +15728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabChick: {fileID: 1773280886777961045, guid: c7ca0992ba00761469f731111e56b107, type: 3}
   _playerTransform: {fileID: 430983544}
+  _explosionRedPool: {fileID: 1380993199}
 --- !u!4 &1380993198
 Transform:
   m_ObjectHideFlags: 0

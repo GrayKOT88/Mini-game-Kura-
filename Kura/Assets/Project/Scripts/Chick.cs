@@ -4,17 +4,18 @@ using UnityEngine.AI;
 public class Chick : MonoBehaviour
 {
     private ChickPool _chickPool;
+    private ExplosionRedPool _explosionRedPool;
     private Transform _player;
     NavMeshAgent agent;
     Animator playerAnim;    
-    Counter counter;
-    [SerializeField] ParticleSystem explosionParticle;    
+    Counter counter;    
     int pointValue = 1;
 
-    public void Initialize(ChickPool chickPool, Transform player)
+    public void Initialize(ChickPool chickPool, Transform player, ExplosionRedPool explosionRedPool)
     {
         _chickPool = chickPool;
         _player = player;
+        _explosionRedPool = explosionRedPool;
         counter = GameObject.Find("Counter").GetComponent<Counter>();        
         agent = GetComponent<NavMeshAgent>();
         playerAnim = GetComponent<Animator>();        
@@ -41,8 +42,9 @@ public class Chick : MonoBehaviour
     {
         if (other.CompareTag("Fox"))
         {            
-            _chickPool.ReturnObject(this);
-            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            _chickPool.ReturnObject(this);            
+            ExplosionRed explosionRed = _explosionRedPool.GetObject();
+            explosionRed.transform.position = transform.position;
             counter.UpdateScore(pointValue);
         }        
     }   

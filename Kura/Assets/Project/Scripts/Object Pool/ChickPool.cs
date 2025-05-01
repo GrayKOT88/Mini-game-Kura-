@@ -5,7 +5,8 @@ public class ChickPool : MonoBehaviour, IObjectPool<Chick>
 {
     [SerializeField] private Chick _prefabChick;
     [SerializeField] private Transform _playerTransform;
-    private int _chickPoolSize = 5;
+    [SerializeField] private ExplosionRedPool _explosionRedPool;
+    private int _chickPoolSize = 10;
 
     private Queue<Chick> _chickPool = new Queue<Chick>();
 
@@ -25,9 +26,8 @@ public class ChickPool : MonoBehaviour, IObjectPool<Chick>
     private void ExpandPool()
     {
         Chick chick = Instantiate(_prefabChick, transform);
-        chick.gameObject.SetActive(false);
-        _chickPool.Enqueue(chick);
-        chick.Initialize(this, _playerTransform);
+        ReturnObject(chick);
+        chick.Initialize(this, _playerTransform, _explosionRedPool);
     }
 
     public Chick GetObject()

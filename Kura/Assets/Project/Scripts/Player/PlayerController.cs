@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator playerAnim;
     [SerializeField] GameObject gameOverImege;
     [SerializeField] GameObject buttonPause;
-    [SerializeField] AudioClip kura;
-    public ParticleSystem explosionParticle;
+    [SerializeField] AudioClip kura;    
+    [SerializeField] private ExplosionRedPool _explosionRedPool;
     private float oldMousePositionX;
     private float eulerY;
     public int maxHealth = 3;
@@ -66,8 +66,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Fox"))
         {
-            TakeDamage(1);
-            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            TakeDamage(1);            
+            ExplosionRed explosionRed = _explosionRedPool.GetObject();
+            explosionRed.transform.position = transform.position;
         }
     }    
 }

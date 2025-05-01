@@ -10,7 +10,7 @@ public class Counter : MonoBehaviour
 
     public TextMeshProUGUI CounterText;
     public TextMeshProUGUI CounterTextFox;
-    public ParticleSystem explosionParticle;   
+    [SerializeField] private ChickPool _chickPool;
     [SerializeField] AudioClip pointSound;    
     private int Count;
     private int CountFox;
@@ -37,9 +37,12 @@ public class Counter : MonoBehaviour
         { 
             Count += 1;            
             CounterText.text = " " + Count;            
-            playerAudio.PlayOneShot(pointSound, 1);
-            Destroy(other.gameObject);
-            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            playerAudio.PlayOneShot(pointSound, 1);            
+            Chick chick = other.GetComponent<Chick>();
+            if (chick != null)
+            {
+                _chickPool.ReturnObject(chick);
+            }
             Progress.PlayerData.saveChick = Count;
             Medal();
             AddNewScores();
