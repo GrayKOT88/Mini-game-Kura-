@@ -2,73 +2,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed;
-    [SerializeField] Animator playerAnim;
-    [SerializeField] GameObject gameOverImege;
-    [SerializeField] GameObject buttonPause;
-    [SerializeField] AudioClip kura;    
-    [SerializeField] private ExplosionRedPool _explosionRedPool;
-    private float oldMousePositionX;
-    private float eulerY;
-    public int maxHealth = 3;
-    public int currentHealth;
-    public HealthBarScript healthBar;
-    public bool gameOver = false;
-    private AudioSource playerAudio;
-    void Start()
+    private PlayerMovement _playerMovement;
+    private PlayerHealth _playerHealth;
+    private PlayerAudio _playerAudio;
+
+    private void Awake()
     {
-        currentHealth = maxHealth;      
-        healthBar.SetHealth(currentHealth);
-        playerAudio = GetComponent<AudioSource>();
-    }    
-    void Update()
-    {
-        Movement();
-        if(transform.position.y <= 0)
-        {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        }
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerHealth = GetComponent<PlayerHealth>();
+        _playerAudio = GetComponent<PlayerAudio>();
+        
+        _playerHealth.OnGameOver += () => _playerMovement.SetGameOver(true);
+        _playerHealth.OnDamageTaken += () => _playerAudio.PlayDamageSound();
     }
-    void Movement()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            oldMousePositionX = Input.mousePosition.x;            
-        }
-        if (Input.GetMouseButton(0) && !gameOver)
-        {            
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-            float deltaX = Input.mousePosition.x - oldMousePositionX;
-            oldMousePositionX = Input.mousePosition.x;
-            eulerY += deltaX;
-            transform.eulerAngles = new Vector3(0, eulerY, 0);
-            playerAnim.SetFloat("Speed_f", 1);
-            
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            playerAnim.SetFloat("Speed_f", 0);           
-        }
-    }
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-        playerAudio.PlayOneShot(kura,1);
-        if(currentHealth <= 0)
-        {
-            gameOver = true;
-            gameOverImege.gameObject.SetActive(true);
-            buttonPause.gameObject.SetActive(false);            
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Fox"))
-        {
-            TakeDamage(1);            
-            ExplosionRed explosionRed = _explosionRedPool.GetObject();
-            explosionRed.transform.position = transform.position;
-        }
-    }    
 }
