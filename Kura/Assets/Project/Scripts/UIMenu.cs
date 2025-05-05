@@ -11,7 +11,7 @@ public class UIMenu : MonoBehaviour
     [SerializeField] GameObject Silver;
     [SerializeField] GameObject Bronze;
 
-    void Update()
+    void Start()
     {
         CountText();
         Medal();

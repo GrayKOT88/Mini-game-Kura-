@@ -9,7 +9,6 @@ public class Chick : MonoBehaviour
     NavMeshAgent agent;
     Animator playerAnim;    
     Counter counter;    
-    int pointValue = 1;
 
     public void Initialize(ChickPool chickPool, Transform player, ExplosionRedPool explosionRedPool)
     {
@@ -44,8 +43,13 @@ public class Chick : MonoBehaviour
         {            
             _chickPool.ReturnObject(this);            
             ExplosionRed explosionRed = _explosionRedPool.GetObject();
-            explosionRed.transform.position = transform.position;
-            counter.UpdateScore(pointValue);
-        }        
+            explosionRed.transform.position = transform.position;            
+            counter.AddEatenChicken();
+        }
+        if (other.CompareTag("Count"))
+        {
+            _chickPool.ReturnObject(this);
+            counter.AddSavedChicken();
+        }
     }   
 }
