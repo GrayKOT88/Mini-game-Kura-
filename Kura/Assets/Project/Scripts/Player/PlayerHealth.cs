@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IHealthSystem
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private HealthBarScript healthBar;

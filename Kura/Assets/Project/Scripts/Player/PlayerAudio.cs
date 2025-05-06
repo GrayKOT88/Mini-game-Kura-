@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class PlayerAudio : MonoBehaviour
-{
-    [SerializeField] private AudioClip damageSound;
+public class PlayerAudio : MonoBehaviour, IAudioPlayable
+{    
     private AudioSource _audioSource;    
 
     private void Awake()
@@ -10,8 +9,8 @@ public class PlayerAudio : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();        
     }
 
-    public void PlayDamageSound()
+    public void PlaySound(AudioClip clip, float volume = 1)
     {
-        _audioSource.PlayOneShot(damageSound, 1f);
+        _audioSource.PlayOneShot(clip, volume);
     }
 }

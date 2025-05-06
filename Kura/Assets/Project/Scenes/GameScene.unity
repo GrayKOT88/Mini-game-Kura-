@@ -4595,6 +4595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68e966987871eb47bba31d7450aa308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageSound: {fileID: 8300000, guid: 4f34b1a62a020834db2c7cdd9bac5398, type: 3}
 --- !u!4 &430983544
 Transform:
   m_ObjectHideFlags: 0
@@ -4788,7 +4789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2114c47bbe3532439063e2af10f3db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageSound: {fileID: 8300000, guid: 4f34b1a62a020834db2c7cdd9bac5398, type: 3}
 --- !u!114 &430983551
 MonoBehaviour:
   m_ObjectHideFlags: 0
