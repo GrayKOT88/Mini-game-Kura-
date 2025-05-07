@@ -107,6 +107,9 @@ GameObject:
   - component: {fileID: 588646521010829557}
   - component: {fileID: 1220432608897736660}
   - component: {fileID: 1773280886777961045}
+  - component: {fileID: -7249501819763304196}
+  - component: {fileID: 6257887962435794801}
+  - component: {fileID: 9057765589188068019}
   m_Layer: 0
   m_Name: Chick
   m_TagString: Chick
@@ -330,7 +333,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b497ecd7eef360943b088f3bfd0d9c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
+--- !u!114 &-7249501819763304196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de091fd6f3ab145bc7909e19e301f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6257887962435794801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb28a8bd97bace24cad1909de2412043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9057765589188068019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64656345166022488f1ffda4ec51bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &113672
 GameObject:
   m_ObjectHideFlags: 0
