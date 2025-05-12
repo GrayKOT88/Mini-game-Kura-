@@ -10,6 +10,7 @@ public class PatrolState : State
     {
         timer = 0f;
         fox.Agent.SetDestination(GetRandomPatrolPoint());
+        fox.Animator.SetBool("isPatrolling", true);
     }
 
     public override void Update()
@@ -40,6 +41,7 @@ public class PatrolState : State
     public override void Exit()
     {
         fox.Agent.SetDestination(fox.transform.position);
+        fox.Animator.SetBool("isPatrolling", false);
     }
 
     private Vector3 GetRandomPatrolPoint()

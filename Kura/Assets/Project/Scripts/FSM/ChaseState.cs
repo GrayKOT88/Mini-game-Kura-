@@ -7,6 +7,7 @@ public class ChaseState : State
     public override void Enter()
     {
         fox.Agent.speed = 10f;
+        fox.Animator.SetBool("isChasing", true);
     }
 
     public override void Update()
@@ -29,5 +30,6 @@ public class ChaseState : State
     {
         fox.Agent.SetDestination(fox.transform.position);
         fox.Agent.speed = 2f;
+        fox.Animator.SetBool("isChasing", false);
     }
 }

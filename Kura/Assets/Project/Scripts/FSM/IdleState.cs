@@ -23,9 +23,8 @@ public class IdleState : State
             fox.SetChase();
             return;
         }
-
-        // ѕереход в патрулирование после бездействи€
-        if (timer > fox.IdleTime)
+        
+        if (timer > fox.IdleTime)  // ѕереход в патрулирование после бездействи€
         {
             fox.SetPatrol();
         }

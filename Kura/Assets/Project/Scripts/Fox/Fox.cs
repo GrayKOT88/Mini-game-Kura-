@@ -10,6 +10,7 @@ public class Fox : MonoBehaviour
     private float _idleTime = 5f;
 
     private NavMeshAgent _agent;
+    private Animator _animator;
     private Transform _player;
     private List<Transform> _patrolPoints;
     private StateMachine _stateMachine;
@@ -17,8 +18,8 @@ public class Fox : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        _animator = GetComponent<Animator>();
+        
         // Инициализация точек патрулирования
         Transform pointsObject = GameObject.FindGameObjectWithTag("Points").transform;
         _patrolPoints = new List<Transform>();
@@ -26,10 +27,14 @@ public class Fox : MonoBehaviour
         {
             _patrolPoints.Add(t);
         }
-
-        // Инициализация машины состояний
-        _stateMachine = new StateMachine();
+        
+        _stateMachine = new StateMachine();  // Инициализация машины состояний
         _stateMachine.ChangeState(new IdleState(this));
+    }
+
+    public void Initialize(Transform player)
+    {
+        _player = player;
     }
 
     private void Update()
@@ -39,6 +44,7 @@ public class Fox : MonoBehaviour
 
     // Свойства для доступа из состояний
     public NavMeshAgent Agent => _agent;
+    public Animator Animator => _animator;
     public Transform Player => _player;
     public List<Transform> PatrolPoints => _patrolPoints;
     public float AttackRange => _attackRange;

@@ -11911,7 +11911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chickPool: {fileID: 1380993197}
-  foxPrefab: {fileID: 4685984963482635045, guid: 562ac42ebe5aec043ab57ceab7cc60c8, type: 3}
+  _foxPool: {fileID: 1380993200}
 --- !u!4 &1025876763
 Transform:
   m_ObjectHideFlags: 0
@@ -15797,6 +15797,7 @@ GameObject:
   - component: {fileID: 1380993198}
   - component: {fileID: 1380993197}
   - component: {fileID: 1380993199}
+  - component: {fileID: 1380993200}
   m_Layer: 0
   m_Name: Object Pool
   m_TagString: Untagged
@@ -15848,6 +15849,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabExplosionRed: {fileID: 2382221037670123813, guid: 0de551c89517a494ebe507415bcdaf51, type: 3}
+--- !u!114 &1380993200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380993196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94e0d3b809b18e4d8a76a87e96adb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabFox: {fileID: 1899538443643392131, guid: 562ac42ebe5aec043ab57ceab7cc60c8, type: 3}
+  _player: {fileID: 430983544}
 --- !u!4 &1381813524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6545928894501091904, guid: ad7194aa8031aa74d9226754ef39fadc, type: 3}

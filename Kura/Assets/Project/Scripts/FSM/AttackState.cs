@@ -6,7 +6,7 @@ public class AttackState : State
 
     public override void Enter()
     {
-        // Здесь можно добавить анимацию атаки или другие эффекты
+        fox.Animator.SetBool("isAttacking", true);       
     }
 
     public override void Update()
@@ -20,6 +20,6 @@ public class AttackState : State
 
     public override void Exit()
     {
-        // Выход из состояния атаки
+        fox.Animator.SetBool("isAttacking", false);        
     }
 }

@@ -4,21 +4,25 @@ using UnityEngine;
 public partial class SpawnManager : MonoBehaviour
 {
     [SerializeField] ChickPool _chickPool;
-    [SerializeField] GameObject foxPrefab;
+    [SerializeField] FoxPool _foxPool;
+    
     List<Transform> _points = new List<Transform>();    
     private int chickCount;
     private int waveNumber = 4;
-    private ChickSpawner _spawnSpawner;
+    private ChickSpawner _chickSpawner;
+    private FoxSpawner _foxSpawner;
+
     
     void Start()
     {
-        _spawnSpawner = new ChickSpawner(_chickPool, _points);
+        _chickSpawner = new ChickSpawner(_chickPool, _points);
+        _foxSpawner = new FoxSpawner(_foxPool, _points);
         Transform pointsObject = GameObject.FindGameObjectWithTag("Points").transform;
         foreach (Transform t in pointsObject)
         {
             _points.Add(t);
         }
-        SpawnFox();
+        _foxSpawner.SpawnFoxWave();        
     }   
     void Update()
     {
@@ -26,20 +30,7 @@ public partial class SpawnManager : MonoBehaviour
         if (chickCount == 0)
         {
             waveNumber++;            
-            _spawnSpawner.SpawnChickWave(waveNumber);
+            _chickSpawner.SpawnChickWave(waveNumber);
         }
-    }
-    
-    void SpawnFox()
-    {
-        Instantiate(foxPrefab, (_points[Random.Range(0, _points.Count)].position), foxPrefab.transform.rotation);
-        if(Progress.PlayerData.saveChick >= 50) 
-        {
-            Instantiate(foxPrefab, (_points[Random.Range(0, _points.Count)].position), foxPrefab.transform.rotation);
-        }
-        if(Progress.PlayerData.saveChick >= 100) 
-        {
-            Instantiate(foxPrefab, (_points[Random.Range(0, _points.Count)].position), foxPrefab.transform.rotation);
-        }
-    }
+    }    
 }
