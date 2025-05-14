@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private Animator playerAnim;
+    [SerializeField] private Animator _playerAnim;
 
-    private float oldMousePositionX;
-    private float eulerY;
-    private bool isGameOver = false;
+    private float _speed = 11;
+    private float _oldMousePositionX;
+    private float _eulerY;
+    private bool _isGameOver = false;
+    private float _yRange = 0.03f;
 
-    public void SetGameOver(bool value) => isGameOver = value;
+    public void SetGameOver(bool value) => _isGameOver = value;
 
     private void Update()
     {
-        if (isGameOver) return;
+        if (_isGameOver) return;
         HandleMovement();
     }
 
@@ -21,22 +22,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            oldMousePositionX = Input.mousePosition.x;
+            _oldMousePositionX = Input.mousePosition.x;
         }
 
         if (Input.GetMouseButton(0))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-            float deltaX = Input.mousePosition.x - oldMousePositionX;
-            oldMousePositionX = Input.mousePosition.x;
-            eulerY += deltaX;
-            transform.eulerAngles = new Vector3(0, eulerY, 0);
-            playerAnim.SetFloat("Speed_f", 1);
+            transform.Translate(Vector3.forward * Time.deltaTime * _speed);
+            float deltaX = Input.mousePosition.x - _oldMousePositionX;
+            _oldMousePositionX = Input.mousePosition.x;
+            _eulerY += deltaX;
+            transform.eulerAngles = new Vector3(0, _eulerY, 0);
+            _playerAnim.SetFloat("Speed_f", 1);
+
+            if(transform.position.y < _yRange)
+            {
+                transform.position = new Vector3(transform.position.x, _yRange, transform.position.z);
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            playerAnim.SetFloat("Speed_f", 0);
+            _playerAnim.SetFloat("Speed_f", 0);
         }
     }
 }
