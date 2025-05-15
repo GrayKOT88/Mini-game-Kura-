@@ -3,10 +3,13 @@ using UnityEngine;
 
 public partial class SpawnManager : MonoBehaviour
 {
-    [SerializeField] ChickPool _chickPool;
-    [SerializeField] FoxPool _foxPool;
+    [SerializeField] private Transform _player;
+    [SerializeField] private ChickPool _chickPool;
+    [SerializeField] private FoxPool _foxPool;    
+    [SerializeField] private ExplosionRedPool _explosionRedPool;
+    [SerializeField] private Counter _counter;
+    [SerializeField] private List<Transform> _points;
     
-    List<Transform> _points = new List<Transform>();    
     private int chickCount;
     private int waveNumber = 4;
     private ChickSpawner _chickSpawner;
@@ -15,13 +18,8 @@ public partial class SpawnManager : MonoBehaviour
     
     void Start()
     {
-        _chickSpawner = new ChickSpawner(_chickPool, _points);
-        _foxSpawner = new FoxSpawner(_foxPool, _points);
-        Transform pointsObject = GameObject.FindGameObjectWithTag("Points").transform;
-        foreach (Transform t in pointsObject)
-        {
-            _points.Add(t);
-        }
+        _chickSpawner = new ChickSpawner(_chickPool, _points, _player, _explosionRedPool, _counter);
+        _foxSpawner = new FoxSpawner(_foxPool, _points, _player);        
         _foxSpawner.SpawnFoxWave();        
     }   
     void Update()

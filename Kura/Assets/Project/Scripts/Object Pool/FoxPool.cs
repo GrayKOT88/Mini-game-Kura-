@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class FoxPool : MonoBehaviour, IObjectPool<Fox>
 {
-    [SerializeField] private Fox _prefabFox;
-    [SerializeField] private Transform _player;
+    [SerializeField] private Fox _prefabFox;    
     private int _foxPoolSize = 1;
     private Queue<Fox> _foxPool = new Queue<Fox>();
 
@@ -19,8 +18,7 @@ public class FoxPool : MonoBehaviour, IObjectPool<Fox>
     private void ExpandPool()
     {
         Fox fox = Instantiate(_prefabFox, transform);
-        ReturnObject(fox);
-        fox.Initialize(_player);
+        ReturnObject(fox);        
     }
 
     public Fox GetObject()

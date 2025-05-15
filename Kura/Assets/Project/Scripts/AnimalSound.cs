@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class HorseScript : MonoBehaviour
+public class AnimalSound : MonoBehaviour
 {
-    [SerializeField] AudioClip frrr;
+    [SerializeField] AudioClip _audioClip;
     private AudioSource playerAudio;
     void Start()
     {
         playerAudio = GetComponent<AudioSource>();
     }
     private void OnCollisionEnter(Collision collision)
-    {
+    {       
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerAudio.PlayOneShot(frrr, 1);
+            playerAudio.PlayOneShot(_audioClip, 1);
         }
     }
 }

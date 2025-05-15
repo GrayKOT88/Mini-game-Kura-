@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class ChickCollisionHandler : MonoBehaviour
 {
-    private ChickPool _chickPool;
+    private IObjectPool<Chick> _chickPool;
     private ExplosionSpawner _explosionSpawner;
     private Counter _counter;
 
-    public void Initialize(ChickPool chickPool, ExplosionSpawner explosionSpawner, Counter counter)
+    public void Initialize(IObjectPool<Chick> chickPool, ExplosionSpawner explosionSpawner, Counter counter)
     {
         _chickPool = chickPool;
         _explosionSpawner = explosionSpawner;

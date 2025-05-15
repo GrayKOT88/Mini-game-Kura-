@@ -15,26 +15,18 @@ public class Fox : MonoBehaviour
     private List<Transform> _patrolPoints;
     private StateMachine _stateMachine;
 
-    private void Awake()
+    private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
-        
-        // Инициализация точек патрулирования
-        Transform pointsObject = GameObject.FindGameObjectWithTag("Points").transform;
-        _patrolPoints = new List<Transform>();
-        foreach (Transform t in pointsObject)
-        {
-            _patrolPoints.Add(t);
-        }
-        
+        _animator = GetComponent<Animator>();       
         _stateMachine = new StateMachine();  // Инициализация машины состояний
         _stateMachine.ChangeState(new IdleState(this));
     }
 
-    public void Initialize(Transform player)
+    public void Initialize(Transform player, List<Transform> patrolPoints)
     {
         _player = player;
+        _patrolPoints = patrolPoints;
     }
 
     private void Update()

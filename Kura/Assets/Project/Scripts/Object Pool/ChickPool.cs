@@ -3,32 +3,22 @@ using UnityEngine;
 
 public class ChickPool : MonoBehaviour, IObjectPool<Chick>
 {
-    [SerializeField] private Chick _prefabChick;
-    [SerializeField] private Transform _playerTransform;
-    [SerializeField] private ExplosionRedPool _explosionRedPool;
-    [SerializeField] private Counter _counter;
+    [SerializeField] private Chick _prefabChick;    
     private int _chickPoolSize = 10;
-
     private Queue<Chick> _chickPool = new Queue<Chick>();
 
     private void Start()
     {
-        InitializePool();
-    }
-
-    private void InitializePool()
-    {
         for (int i = 0; i < _chickPoolSize; i++)
         {
             ExpandPool();
-        }
+        }        
     }
 
     private void ExpandPool()
     {
         Chick chick = Instantiate(_prefabChick, transform);
-        ReturnObject(chick);
-        chick.Initialize(this, _playerTransform, _explosionRedPool, _counter);
+        ReturnObject(chick);        
     }
 
     public Chick GetObject()
