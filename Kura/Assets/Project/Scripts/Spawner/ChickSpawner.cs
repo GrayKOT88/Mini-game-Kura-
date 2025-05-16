@@ -6,11 +6,11 @@ public class ChickSpawner
     private IObjectPool<Chick> _chickPool;
     private List<Transform> _points;
     private Transform _player;
-    private ExplosionRedPool _explosionRedPool;
+    private IObjectPool<ExplosionRed> _explosionRedPool;
     private Counter _counter;
 
     public ChickSpawner(IObjectPool<Chick> chickPool, List<Transform> points, Transform player,
-        ExplosionRedPool explosionRedPool, Counter counter)
+        IObjectPool<ExplosionRed> explosionRedPool, Counter counter)
     {
         _chickPool = chickPool;
         _points = points;

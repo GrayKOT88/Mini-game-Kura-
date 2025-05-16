@@ -3,10 +3,10 @@ using UnityEngine;
 
 public partial class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
-    [SerializeField] private ChickPool _chickPool;
     [SerializeField] private FoxPool _foxPool;    
+    [SerializeField] private ChickPool _chickPool;
     [SerializeField] private ExplosionRedPool _explosionRedPool;
+    [SerializeField] private Transform _player;
     [SerializeField] private Counter _counter;
     [SerializeField] private List<Transform> _points;
     

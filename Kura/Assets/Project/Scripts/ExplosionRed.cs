@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class ExplosionRed : MonoBehaviour
 {
-    private ExplosionRedPool _pool;
+    private IObjectPool<ExplosionRed> _pool;
     private float _returnTime = 2f;
 
-    public void Initialize(ExplosionRedPool pool)
+    public void Initialize(IObjectPool<ExplosionRed> pool)
     {
         _pool = pool;
     }

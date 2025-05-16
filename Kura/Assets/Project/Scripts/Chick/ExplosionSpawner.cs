@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ExplosionSpawner : MonoBehaviour
 {
-    private ExplosionRedPool _explosionRedPool;
-    public void Initialize(ExplosionRedPool explosionRedPool)
+    private IObjectPool<ExplosionRed> _explosionRedPool;
+    public void Initialize(IObjectPool<ExplosionRed> explosionRedPool)
     {        
         _explosionRedPool = explosionRedPool;        
     }
