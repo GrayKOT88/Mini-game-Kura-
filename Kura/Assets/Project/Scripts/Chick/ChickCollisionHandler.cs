@@ -14,12 +14,6 @@ public class ChickCollisionHandler : MonoBehaviour
         _explosionSpawner = explosionSpawner;        
     }
 
-    public void Reset()
-    {
-        OnFoxCollision = null;
-        OnCountCollision = null;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fox"))
@@ -34,14 +28,21 @@ public class ChickCollisionHandler : MonoBehaviour
 
     private void HandleFoxCollision()
     {
-        _chickPool.ReturnObject(GetComponent<Chick>());        
         _explosionSpawner.SpawnExplosion();
         OnFoxCollision?.Invoke();
+        Reset();
     }
 
     private void HandleCountCollision()
+    {                
+        OnCountCollision?.Invoke();
+        Reset();
+    }
+
+    private void Reset()
     {
         _chickPool.ReturnObject(GetComponent<Chick>());        
-        OnCountCollision?.Invoke();
+        OnFoxCollision = null;
+        OnCountCollision = null;
     }
 }

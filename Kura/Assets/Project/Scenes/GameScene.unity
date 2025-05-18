@@ -4887,7 +4887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382b07e817d866540828ced8c1286015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
   healthBar: {fileID: 1842220200}
   gameOverImage: {fileID: 1317112572}
   buttonPause: {fileID: 1692385883}
@@ -4916,6 +4916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2efa44a117b8c42bf8f74f4bb1c95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
   _playerAnim: {fileID: 2050158910}
 --- !u!4 &431205558 stripped
 Transform:
@@ -12259,6 +12260,7 @@ MonoBehaviour:
   _explosionRedPool: {fileID: 1380993199}
   _player: {fileID: 430983544}
   _counter: {fileID: 938997852}
+  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
   _points:
   - {fileID: 1330025553}
   - {fileID: 1101897257}

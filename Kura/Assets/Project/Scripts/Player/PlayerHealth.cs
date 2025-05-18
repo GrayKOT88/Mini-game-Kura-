@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealthSystem
 {
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private AnimalSettings _settings;    
     [SerializeField] private HealthBarScript healthBar;
     [SerializeField] private GameObject gameOverImage;
     [SerializeField] private GameObject buttonPause;
@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour, IHealthSystem
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = _settings.MaxHealth;
         healthBar.SetHealth(currentHealth);
     }
 

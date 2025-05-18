@@ -15,10 +15,10 @@ public class Chick : MonoBehaviour
     }
 
     public void Initialize(IObjectPool<Chick> chickPool, Transform player,
-        IObjectPool<ExplosionRed> explosionRedPool)
+        IObjectPool<ExplosionRed> explosionRedPool, AnimalSettings settings)
     {
-        _movement.Initialize(player);
+        _movement.Initialize(player, settings);
         _collisionHandler.Initialize(chickPool, _explosionSpawner);
         _explosionSpawner.Initialize(explosionRedPool);
-    }    
+    }
 }

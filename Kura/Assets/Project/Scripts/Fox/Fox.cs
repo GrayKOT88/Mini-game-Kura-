@@ -3,12 +3,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Fox : MonoBehaviour
-{
-    private float _attackRange = 1f;
-    private float _chaseRange = 25f;
-    private float _patrolTime = 180f;
-    private float _idleTime = 5f;
-
+{    
+    private AnimalSettings _settings;
     private NavMeshAgent _agent;
     private Animator _animator;
     private Transform _player;
@@ -18,15 +14,16 @@ public class Fox : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();       
+        _animator = GetComponent<Animator>();
         _stateMachine = new StateMachine();  // Инициализация машины состояний
         _stateMachine.ChangeState(new IdleState(this));
     }
 
-    public void Initialize(Transform player, List<Transform> patrolPoints)
+    public void Initialize(Transform player, List<Transform> patrolPoints, AnimalSettings settings)
     {
         _player = player;
         _patrolPoints = patrolPoints;
+        _settings = settings;
     }
 
     private void Update()
@@ -39,10 +36,10 @@ public class Fox : MonoBehaviour
     public Animator Animator => _animator;
     public Transform Player => _player;
     public List<Transform> PatrolPoints => _patrolPoints;
-    public float AttackRange => _attackRange;
-    public float ChaseRange => _chaseRange;
-    public float PatrolTime => _patrolTime;
-    public float IdleTime => _idleTime;
+    public float AttackRange => _settings.AttackRange;
+    public float ChaseRange => _settings.ChaseRange;
+    public float PatrolTime => _settings.PatrolTime;
+    public float IdleTime => _settings.IdleTime;
 
     // Методы для изменения состояния
     public void SetIdle() => _stateMachine.ChangeState(new IdleState(this));

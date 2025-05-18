@@ -6,8 +6,7 @@ public class ChickMovement : MonoBehaviour
     private NavMeshAgent _agent;
     private Animator _animator;
     private Transform _target;
-    private float _followDistance = 10f;
-    private float _stopDistance = 1f;
+    private AnimalSettings _settings;    
 
     private void Awake()
     {
@@ -15,9 +14,10 @@ public class ChickMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Initialize(Transform target)
+    public void Initialize(Transform target, AnimalSettings settings)
     {
         _target = target;
+        _settings = settings;
     }
 
     private void Update()
@@ -26,17 +26,17 @@ public class ChickMovement : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, _target.position);
 
-        if (distance >= _followDistance)
+        if (distance >= _settings.FollowDistance)
         {
             StandStill();
         }
-        else if (distance < _followDistance && distance > _stopDistance)
+        else if (distance < _settings.FollowDistance && distance > _settings.StopDistance)
         {
             _agent.isStopped = false;
             _agent.SetDestination(_target.position);
             _animator.SetFloat("Speed_f", 1);
         }
-        else if (distance <= _stopDistance)
+        else if (distance <= _settings.StopDistance)
         {
             StandStill();
         }
