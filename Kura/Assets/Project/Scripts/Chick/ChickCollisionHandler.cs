@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class ChickCollisionHandler : MonoBehaviour
 {
-    private IObjectPool<Chick> _chickPool;
-    private ExplosionSpawner _explosionSpawner;
-    private Counter _counter;
+    public event System.Action OnFoxCollision;
+    public event System.Action OnCountCollision;
 
-    public void Initialize(IObjectPool<Chick> chickPool, ExplosionSpawner explosionSpawner, Counter counter)
+    private IObjectPool<Chick> _chickPool;
+    private ExplosionSpawner _explosionSpawner;    
+
+    public void Initialize(IObjectPool<Chick> chickPool, ExplosionSpawner explosionSpawner)
     {
         _chickPool = chickPool;
-        _explosionSpawner = explosionSpawner;
-        _counter = counter;
+        _explosionSpawner = explosionSpawner;        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,14 +28,14 @@ public class ChickCollisionHandler : MonoBehaviour
 
     private void HandleFoxCollision()
     {
-        _chickPool.ReturnObject(GetComponent<Chick>());
-        _counter.AddEatenChicken();
+        _chickPool.ReturnObject(GetComponent<Chick>());        
         _explosionSpawner.SpawnExplosion();
+        OnFoxCollision?.Invoke();
     }
 
     private void HandleCountCollision()
     {
-        _chickPool.ReturnObject(GetComponent<Chick>());
-        _counter.AddSavedChicken();
+        _chickPool.ReturnObject(GetComponent<Chick>());        
+        OnCountCollision?.Invoke();
     }
 }

@@ -24,8 +24,12 @@ public class ChickSpawner
         for (int i = 0; i < numberOfChicks; i++)
         {
             Chick chick = _chickPool.GetObject();
-            chick.Initialize(_chickPool, _player, _explosionRedPool, _counter);
+            chick.Initialize(_chickPool, _player, _explosionRedPool);
             chick.transform.position = _points[Random.Range(0, _points.Count)].position;
+
+            // Подписываемся на события
+            chick.CollisionHandler.OnFoxCollision += _counter.AddEatenChicken;
+            chick.CollisionHandler.OnCountCollision += _counter.AddSavedChicken;
         }
     }
 }
