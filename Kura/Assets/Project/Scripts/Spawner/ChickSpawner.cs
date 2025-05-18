@@ -8,15 +8,17 @@ public class ChickSpawner
     private Transform _player;
     private IObjectPool<ExplosionRed> _explosionRedPool;
     private Counter _counter;
+    private SpawnManager _spawnManager;
 
     public ChickSpawner(IObjectPool<Chick> chickPool, List<Transform> points, Transform player,
-        IObjectPool<ExplosionRed> explosionRedPool, Counter counter)
+        IObjectPool<ExplosionRed> explosionRedPool, Counter counter, SpawnManager spawnManager)
     {
         _chickPool = chickPool;
         _points = points;
         _player = player;
         _explosionRedPool = explosionRedPool;
         _counter = counter;
+        _spawnManager = spawnManager;
     }
 
     public void SpawnChickWave(int numberOfChicks)
@@ -30,6 +32,8 @@ public class ChickSpawner
             // Подписываемся на события
             chick.CollisionHandler.OnFoxCollision += _counter.AddEatenChicken;
             chick.CollisionHandler.OnCountCollision += _counter.AddSavedChicken;
+            chick.CollisionHandler.OnFoxCollision += _spawnManager.UpdateWave;
+            chick.CollisionHandler.OnCountCollision += _spawnManager.UpdateWave;
         }
     }
 }

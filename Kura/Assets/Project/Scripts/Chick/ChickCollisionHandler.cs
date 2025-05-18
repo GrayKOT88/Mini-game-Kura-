@@ -14,6 +14,12 @@ public class ChickCollisionHandler : MonoBehaviour
         _explosionSpawner = explosionSpawner;        
     }
 
+    public void Reset()
+    {
+        OnFoxCollision = null;
+        OnCountCollision = null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fox"))

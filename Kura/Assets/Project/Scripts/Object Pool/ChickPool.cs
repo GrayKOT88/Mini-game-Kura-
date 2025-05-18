@@ -34,7 +34,8 @@ public class ChickPool : MonoBehaviour, IObjectPool<Chick>
 
     public void ReturnObject(Chick chick)
     {
-        chick.gameObject.SetActive(false);        
+        chick.gameObject.SetActive(false);
+        chick.CollisionHandler.Reset();
         _chickPool.Enqueue(chick);
     }
 }
