@@ -7,7 +7,7 @@ public class ExplosionRedPool : MonoBehaviour, IObjectPool<ExplosionRed>
     private int _explosionRedPoolSize = 5;
     private Queue<ExplosionRed> _explosionRedPool = new Queue<ExplosionRed>();
 
-    private void Start()
+    private void Awake()
     {        
         for (int i = 0; i < _explosionRedPoolSize; i++)
         {

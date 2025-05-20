@@ -14,10 +14,15 @@ public class AnimalSettings : ScriptableObject
     public float PatrolTime = 180f;
     public float IdleTime = 5f;
     [Space]
+    public int Fifty = 50;
+    public int Hundred = 100;
+    [Space]
     [Header("Chick")]
     public float FollowDistance = 10f;
-    public float StopDistance = 1f;
+    public float StopDistance = 1f;   
     [Space]
-    [Header("Spawn Manager")]
-    public int WaveNumber = 4;
+    [Header("Medal")]
+    public int Bronze = 20;
+    public int Silver = 50;
+    public int Gold = 100;
 }

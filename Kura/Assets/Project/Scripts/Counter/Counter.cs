@@ -1,13 +1,20 @@
 using UnityEngine;
+using Zenject;
 
 public class Counter : MonoBehaviour
 {
-    [SerializeField] private ScoreManager _scoreManager;
-    [SerializeField] private AchievementManager _achievementManager;
-    [SerializeField] private ScoreSaver _scoreSaver;
+    private ScoreManager _scoreManager;
+    private AchievementManager _achievementManager;
+    private ScoreSaver _scoreSaver;
+    private AudioSource _audioSource;
     [SerializeField] private AudioClip _pointSound;
 
-    private AudioSource _audioSource;
+    [Inject] private void Construct(ScoreManager scoreManager, AchievementManager achievementManager, ScoreSaver scoreSaver)
+    {
+        _scoreManager = scoreManager;
+        _achievementManager = achievementManager;
+        _scoreSaver = scoreSaver;
+    }
 
     private void Start()
     {

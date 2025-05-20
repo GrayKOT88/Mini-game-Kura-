@@ -1913,6 +1913,7 @@ MonoBehaviour:
   chickCountText: {fileID: 379685131}
   foxCountText: {fileID: 1966391186}
   recordCountText: {fileID: 1538400160}
+  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
   Gold: {fileID: 2011989258}
   Silver: {fileID: 771835398}
   Bronze: {fileID: 669935158}

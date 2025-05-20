@@ -10698,9 +10698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262ee90895f8ac94082238c5fab07786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreManager: {fileID: 938997858}
-  _achievementManager: {fileID: 938997857}
-  _scoreSaver: {fileID: 938997856}
   _pointSound: {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
 --- !u!54 &938997853
 Rigidbody:
@@ -10873,6 +10870,7 @@ MonoBehaviour:
   Gold: {fileID: 1067861923}
   Silver: {fileID: 82471401}
   Bronze: {fileID: 1198662471}
+  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
 --- !u!114 &938997858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12236,6 +12234,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1025876763}
   - component: {fileID: 1025876762}
+  - component: {fileID: 1025876765}
+  - component: {fileID: 1025876764}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -12255,13 +12255,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792ffbbeea48608449c328432db4950b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1025876763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025876761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -44.181, y: 2.481677, z: -43.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1025876764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025876761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1025876765}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!114 &1025876765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025876761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8893852a1dc34aa54f314bedcf9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animalSettings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
+  _playerData: {fileID: 0}
   _foxPool: {fileID: 1380993200}
   _chickPool: {fileID: 1380993197}
   _explosionRedPool: {fileID: 1380993199}
   _player: {fileID: 430983544}
-  _counter: {fileID: 938997852}
-  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
-  _points:
+  _spawnPoints:
   - {fileID: 1330025553}
   - {fileID: 1101897257}
   - {fileID: 1987601607}
@@ -12283,21 +12342,13 @@ MonoBehaviour:
   - {fileID: 953320191}
   - {fileID: 950204110}
   - {fileID: 303122052}
---- !u!4 &1025876763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025876761}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.181, y: 2.481677, z: -43.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  _scoreManager: {fileID: 938997858}
+  _achievementManager: {fileID: 938997857}
+  _scoreSaver: {fileID: 938997856}
+  _counter: {fileID: 938997852}
+  _healthBar: {fileID: 1842220200}
+  _gameOverImage: {fileID: 1317112572}
+  _pauseButton: {fileID: 1692385883}
 --- !u!4 &1042892702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6442067900683981980, guid: 5284e19d79f18ca43b024510c85409e2, type: 3}

@@ -7,7 +7,7 @@ public class FoxPool : MonoBehaviour, IObjectPool<Fox>
     private int _foxPoolSize = 1;
     private Queue<Fox> _foxPool = new Queue<Fox>();
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < _foxPoolSize; i++)
         {

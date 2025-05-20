@@ -6,7 +6,7 @@ public class UIMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI chickCountText;
     [SerializeField] TextMeshProUGUI foxCountText;
     [SerializeField] TextMeshProUGUI recordCountText;
-
+    [SerializeField] AnimalSettings _settings;
     [SerializeField] GameObject Gold;
     [SerializeField] GameObject Silver;
     [SerializeField] GameObject Bronze;
@@ -21,16 +21,16 @@ public class UIMenu : MonoBehaviour
         Gold.SetActive(false);
         Silver.SetActive(false);
         Bronze.SetActive(false);
-        if (Progress.PlayerData.saveChick >= 20)
+        if (Progress.PlayerData.saveChick >= _settings.Bronze)
         {
             Bronze.SetActive(true);
         }
-        if (Progress.PlayerData.saveChick >= 50)
+        if (Progress.PlayerData.saveChick >= _settings.Silver)
         {
             Bronze.SetActive(false);
             Silver.SetActive(true);
         }
-        if (Progress.PlayerData.saveChick >= 100)
+        if (Progress.PlayerData.saveChick >= _settings.Gold)
         {
             Silver.SetActive(false);
             Gold.SetActive(true);

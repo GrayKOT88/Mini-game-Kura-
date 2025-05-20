@@ -19,11 +19,11 @@ public class FoxSpawner
     public void SpawnFoxWave()
     {
         SpawnFox();
-        if (Progress.PlayerData.saveChick >= 50)
+        if (Progress.PlayerData.saveChick >= _settings.Fifty)
         {
             SpawnFox();
         }
-        if (Progress.PlayerData.saveChick >= 100)
+        if (Progress.PlayerData.saveChick >= _settings.Hundred)
         {
             SpawnFox();
         }
@@ -36,4 +36,3 @@ public class FoxSpawner
         fox.transform.position = _points[Random.Range(0, _points.Count)].position;
     }
 }
-

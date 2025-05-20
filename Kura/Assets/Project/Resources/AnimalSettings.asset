@@ -19,5 +19,10 @@ MonoBehaviour:
   ChaseRange: 25
   PatrolTime: 180
   IdleTime: 5
+  Fifty: 50
+  Hundred: 100
   FollowDistance: 10
   StopDistance: 1
+  Bronze: 20
+  Silver: 50
+  Gold: 100

@@ -5,6 +5,7 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] private GameObject Gold;
     [SerializeField] private GameObject Silver;
     [SerializeField] private GameObject Bronze;
+    [SerializeField] private AnimalSettings _settings;
 
     public void UpdateMedals(int savedChickens)
     {
@@ -12,15 +13,15 @@ public class AchievementManager : MonoBehaviour
         Silver.SetActive(false);
         Bronze.SetActive(false);
 
-        if (savedChickens >= 100)
+        if (savedChickens >= _settings.Gold)
         {
             Gold.SetActive(true);
         }
-        else if (savedChickens >= 50)
+        else if (savedChickens >= _settings.Silver)
         {
             Silver.SetActive(true);
         }
-        else if (savedChickens >= 20)
+        else if (savedChickens >= _settings.Bronze)
         {
             Bronze.SetActive(true);
         }

@@ -4,6 +4,8 @@ public class StateMachine
 
     public void ChangeState(IState newState)
     {
+        if (currentState == newState) return;
+
         currentState?.Exit();
         currentState = newState;
         currentState.Enter();

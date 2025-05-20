@@ -6,7 +6,7 @@ public class ChickCollisionHandler : MonoBehaviour
     public event System.Action OnCountCollision;
 
     private IObjectPool<Chick> _chickPool;
-    private ExplosionSpawner _explosionSpawner;    
+    private ExplosionSpawner _explosionSpawner;
 
     public void Initialize(IObjectPool<Chick> chickPool, ExplosionSpawner explosionSpawner)
     {

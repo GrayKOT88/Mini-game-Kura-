@@ -7,7 +7,7 @@ public class ChickPool : MonoBehaviour, IObjectPool<Chick>
     private int _chickPoolSize = 10;
     private Queue<Chick> _chickPool = new Queue<Chick>();
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < _chickPoolSize; i++)
         {
