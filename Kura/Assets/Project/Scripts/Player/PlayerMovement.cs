@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private AnimalSettings _settings;
+    [Inject] private AnimalSettings _settings;
     [SerializeField] private Animator _playerAnim;    
     private float _oldMousePositionX;
     private float _eulerY;

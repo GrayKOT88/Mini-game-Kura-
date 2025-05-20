@@ -1,11 +1,12 @@
 using UnityEngine;
+using Zenject;
 
 public class AchievementManager : MonoBehaviour
 {
     [SerializeField] private GameObject Gold;
     [SerializeField] private GameObject Silver;
     [SerializeField] private GameObject Bronze;
-    [SerializeField] private AnimalSettings _settings;
+    [Inject] private AnimalSettings _settings;
 
     public void UpdateMedals(int savedChickens)
     {

@@ -1,27 +1,31 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-    // Настройки
+    [Header("Настройки")]
     [SerializeField] private AnimalSettings _animalSettings;
     [SerializeField] private PlayerDataSO _playerData;
-    // Пулы
+    [Header("Пулы")]
     [SerializeField] private FoxPool _foxPool;
     [SerializeField] private ChickPool _chickPool;
     [SerializeField] private ExplosionRedPool _explosionRedPool;
-    // Объекты
+    [Header("Объекты")]
     [SerializeField] private Transform _player;
     [SerializeField] private List<Transform> _spawnPoints;
-    // UI и системы
+    [Header("UI")]
+    [SerializeField] private GameObject _gameOverImage;
+    [SerializeField] private GameObject _pauseButton;
+    [SerializeField] private TextMeshProUGUI _counterText;
+    [SerializeField] private TextMeshProUGUI _counterTextFox;
+    [Header("Классы")]
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private AchievementManager _achievementManager;
     [SerializeField] private ScoreSaver _scoreSaver;
     [SerializeField] private Counter _counter;
     [SerializeField] private HealthBarScript _healthBar;
-    [SerializeField] private GameObject _gameOverImage;
-    [SerializeField] private GameObject _pauseButton;
 
     public override void InstallBindings()
     {
@@ -29,24 +33,26 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance(_animalSettings);
         Container.BindInstance(_playerData);
         //  пулы
-        Container.BindInstance(_foxPool);
-        Container.BindInstance(_chickPool);
-        Container.BindInstance(_explosionRedPool);
+        Container.Bind<IObjectPool<Chick>>().FromInstance(_chickPool);
+        Container.Bind<IObjectPool<Fox>>().FromInstance(_foxPool);
+        Container.Bind<IObjectPool<ExplosionRed>>().FromInstance(_explosionRedPool);
         // Объекты
         Container.BindInstance(_player).WithId("Player");        
         Container.BindInstance(_spawnPoints).WithId("SpawnPoints");
-        // Биндинг UI и систем
+        // UI
+        Container.BindInstance(_gameOverImage).WithId("GameOverImage");
+        Container.BindInstance(_pauseButton).WithId("PauseButton");
+        Container.BindInstance(_counterText).WithId("CounterText");
+        Container.BindInstance(_counterTextFox).WithId("CounterTextFox");
+        // Классы
         Container.BindInstance(_scoreManager);
         Container.BindInstance(_achievementManager);
         Container.BindInstance(_scoreSaver);
         Container.BindInstance(_counter);
-        Container.BindInstance(_healthBar);        
-        // Биндинг Player-зависимостей
-        Container.BindInterfacesAndSelfTo<PlayerHealth>().FromComponentInHierarchy().AsSingle()
-            .WithArguments(_animalSettings, _healthBar, _gameOverImage, _pauseButton);
+        Container.BindInstance(_healthBar);
+        // Player-зависимостей
+        Container.BindInterfacesAndSelfTo<PlayerHealth>().FromComponentInHierarchy().AsSingle();        
         Container.BindInterfacesAndSelfTo<PlayerMovement>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<PlayerAudio>().FromComponentInHierarchy().AsSingle();
-        // Биндинг SpawnManager
-        Container.BindInterfacesAndSelfTo<SpawnManager>().FromComponentInHierarchy().AsSingle();        
+        Container.BindInterfacesAndSelfTo<PlayerAudio>().FromComponentInHierarchy().AsSingle();                
     }
 }

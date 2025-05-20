@@ -1,22 +1,21 @@
 using UnityEngine;
+using Zenject;
 
 public class PlayerHealth : MonoBehaviour, IHealthSystem
 {
-    [SerializeField] private AnimalSettings _settings;    
-    [SerializeField] private HealthBarScript healthBar;
-    [SerializeField] private GameObject gameOverImage;
-    [SerializeField] private GameObject buttonPause;
-
+    [Inject] private AnimalSettings _settings;
+    [Inject] private HealthBarScript _healthBar;
+    [Inject(Id = "GameOverImage")] private GameObject _gameOverImage;
+    [Inject(Id = "PauseButton")] private GameObject _pauseButton;
     private int currentHealth;
     private bool isGameOver = false;
-
     public event System.Action OnGameOver;
     public event System.Action OnDamageTaken;
 
     private void Start()
     {
         currentHealth = _settings.MaxHealth;
-        healthBar.SetHealth(currentHealth);
+        _healthBar.SetHealth(currentHealth);
     }
 
     public void TakeDamage(int damage)
@@ -24,7 +23,7 @@ public class PlayerHealth : MonoBehaviour, IHealthSystem
         if (isGameOver) return;
 
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        _healthBar.SetHealth(currentHealth);
         OnDamageTaken?.Invoke();
 
         if (currentHealth <= 0)
@@ -36,8 +35,8 @@ public class PlayerHealth : MonoBehaviour, IHealthSystem
     private void GameOver()
     {
         isGameOver = true;
-        gameOverImage.SetActive(true);
-        buttonPause.SetActive(false);
+        _gameOverImage.SetActive(true);
+        _pauseButton.SetActive(false);
         OnGameOver?.Invoke();
     }
 }

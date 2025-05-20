@@ -3,18 +3,11 @@ using Zenject;
 
 public class Counter : MonoBehaviour
 {
-    private ScoreManager _scoreManager;
-    private AchievementManager _achievementManager;
-    private ScoreSaver _scoreSaver;
+    [Inject] private ScoreManager _scoreManager;
+    [Inject] private AchievementManager _achievementManager;
+    [Inject] private ScoreSaver _scoreSaver;
     private AudioSource _audioSource;
-    [SerializeField] private AudioClip _pointSound;
-
-    [Inject] private void Construct(ScoreManager scoreManager, AchievementManager achievementManager, ScoreSaver scoreSaver)
-    {
-        _scoreManager = scoreManager;
-        _achievementManager = achievementManager;
-        _scoreSaver = scoreSaver;
-    }
+    [SerializeField] private AudioClip _pointSound;    
 
     private void Start()
     {

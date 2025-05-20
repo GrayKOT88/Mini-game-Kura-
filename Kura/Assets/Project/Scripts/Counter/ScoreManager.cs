@@ -1,11 +1,11 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI CounterText;
-    [SerializeField] private TextMeshProUGUI CounterTextFox;
-
+    [Inject(Id = "CounterText")] private TextMeshProUGUI _ñounterText;
+    [Inject(Id = "CounterTextFox")] private TextMeshProUGUI _ñounterTextFox;
     private int _countChickens;
     private int _countFoxes;
 
@@ -15,12 +15,12 @@ public class ScoreManager : MonoBehaviour
     public void AddChickens(int value)
     {
         _countChickens += value;
-        CounterText.text = " " + _countChickens;
+        _ñounterText.text = " " + _countChickens;
     }
 
     public void AddFoxes(int value)
     {
         _countFoxes += value;
-        CounterTextFox.text = " " + _countFoxes;
+        _ñounterTextFox.text = " " + _countFoxes;
     }
 }

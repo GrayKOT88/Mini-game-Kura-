@@ -4887,10 +4887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382b07e817d866540828ced8c1286015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
-  healthBar: {fileID: 1842220200}
-  gameOverImage: {fileID: 1317112572}
-  buttonPause: {fileID: 1692385883}
 --- !u!114 &430983552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4903,7 +4899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4b2ac10de2c344bab52826a2664f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRedPool: {fileID: 1380993199}
 --- !u!114 &430983553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10870,7 +10865,6 @@ MonoBehaviour:
   Gold: {fileID: 1067861923}
   Silver: {fileID: 82471401}
   Bronze: {fileID: 1198662471}
-  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
 --- !u!114 &938997858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10883,8 +10877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff98f941c795e3b42a3a086e160b3f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CounterText: {fileID: 1368876979}
-  CounterTextFox: {fileID: 1129629665}
 --- !u!4 &942387698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6545928894501091904, guid: ad7194aa8031aa74d9226754ef39fadc, type: 3}
@@ -12315,7 +12307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animalSettings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
-  _playerData: {fileID: 0}
+  _playerData: {fileID: 11400000, guid: 04db99bb92fbd0841b3d84880832d3c2, type: 2}
   _foxPool: {fileID: 1380993200}
   _chickPool: {fileID: 1380993197}
   _explosionRedPool: {fileID: 1380993199}
@@ -12349,6 +12341,8 @@ MonoBehaviour:
   _healthBar: {fileID: 1842220200}
   _gameOverImage: {fileID: 1317112572}
   _pauseButton: {fileID: 1692385883}
+  _counterText: {fileID: 1368876979}
+  _counterTextFox: {fileID: 1129629665}
 --- !u!4 &1042892702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6442067900683981980, guid: 5284e19d79f18ca43b024510c85409e2, type: 3}

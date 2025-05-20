@@ -4,33 +4,19 @@ using Zenject;
 
 public partial class SpawnManager : MonoBehaviour
 {
-    private FoxPool _foxPool;
-    private ChickPool _chickPool;
-    private ExplosionRedPool _explosionRedPool;
-    private Transform _player;
-    private Counter _counter;
-    private AnimalSettings _settings;
-    private List<Transform> _points;
+    [Inject] private IObjectPool<Fox> _foxPool;
+    [Inject] private IObjectPool<Chick> _chickPool;
+    [Inject] private IObjectPool<ExplosionRed> _explosionRedPool;
+    [Inject(Id = "Player")] private Transform _player;
+    [Inject(Id = "SpawnPoints")] private List<Transform> _points;
+    [Inject] private Counter _counter;
+    [Inject] private AnimalSettings _settings;
 
     private int _chickCount;
     private int _waveNumber = 4;
     private ChickSpawner _chickSpawner;
     private FoxSpawner _foxSpawner;
-
-    [Inject]
-    public void Construct(FoxPool foxPool, ChickPool chickPool, ExplosionRedPool explosionRedPool,
-        [Inject(Id = "Player")] Transform player, Counter counter, AnimalSettings settings,
-        [Inject(Id = "SpawnPoints")] List<Transform> points)
-    {
-        _foxPool = foxPool;
-        _chickPool = chickPool;
-        _explosionRedPool = explosionRedPool;
-        _player = player;
-        _counter = counter;
-        _settings = settings;
-        _points = points;
-    }
-
+   
     void Start()
     {
         _chickSpawner = new ChickSpawner(_chickPool, _points, _player, _explosionRedPool, _counter, this, _settings);

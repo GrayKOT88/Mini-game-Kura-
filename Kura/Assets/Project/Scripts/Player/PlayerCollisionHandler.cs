@@ -1,27 +1,23 @@
 using UnityEngine;
+using Zenject;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    [SerializeField] private ExplosionRedPool explosionRedPool;
-    private PlayerHealth playerHealth;
-
-    private void Awake()
-    {
-        playerHealth = GetComponent<PlayerHealth>();
-    }
+    [Inject] private IObjectPool<ExplosionRed> _explosionRedPool;
+    [Inject] private IHealthSystem _playerHealth;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fox"))
         {
-            playerHealth.TakeDamage(1);
+            _playerHealth.TakeDamage(1);
             SpawnExplosion();
         }
     }
 
     private void SpawnExplosion()
     {
-        ExplosionRed explosion = explosionRedPool.GetObject();
+        ExplosionRed explosion = _explosionRedPool.GetObject();
         explosion.transform.position = transform.position;
     }
 }
