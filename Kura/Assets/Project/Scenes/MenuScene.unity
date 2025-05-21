@@ -753,6 +753,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379685129}
   m_CullTransparentMesh: 1
+--- !u!1 &429012445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429012448}
+  - component: {fileID: 429012447}
+  - component: {fileID: 429012446}
+  m_Layer: 0
+  m_Name: Menu Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &429012446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429012445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d6f759b7904f349ba8d7d3823afb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animalSettings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
+  _playerData: {fileID: 11400000, guid: 04db99bb92fbd0841b3d84880832d3c2, type: 2}
+  _chickCountText: {fileID: 379685131}
+  _foxCountText: {fileID: 1966391186}
+  _recordCountText: {fileID: 1538400160}
+  _goldMedal: {fileID: 2011989258}
+  _silverMedal: {fileID: 771835398}
+  _bronzeMedal: {fileID: 669935158}
+--- !u!114 &429012447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429012445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 429012446}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &429012448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429012445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596523503
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a51b9ae22ba82448d9d5ff69ad97b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 11400000, guid: 04db99bb92fbd0841b3d84880832d3c2, type: 2}
 --- !u!1 &669935158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1417,6 @@ GameObject:
   - component: {fileID: 1491992720}
   - component: {fileID: 1491992719}
   - component: {fileID: 1491992722}
-  - component: {fileID: 1491992723}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1511,18 +1594,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1491992723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491992718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ea6fe5cc836984d80e01718a2d38ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1509716194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,13 +1981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88761a743996b30488cf43193a83c6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chickCountText: {fileID: 379685131}
-  foxCountText: {fileID: 1966391186}
-  recordCountText: {fileID: 1538400160}
-  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
-  Gold: {fileID: 2011989258}
-  Silver: {fileID: 771835398}
-  Bronze: {fileID: 669935158}
 --- !u!1 &1791281124
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,5 +2640,6 @@ SceneRoots:
   - {fileID: 1631115033}
   - {fileID: 1398099457}
   - {fileID: 357509599}
+  - {fileID: 429012448}
   - {fileID: 596523505}
   - {fileID: 333486729}

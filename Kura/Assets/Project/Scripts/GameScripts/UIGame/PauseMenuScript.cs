@@ -4,26 +4,22 @@ using YG;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    public bool PauseGame;
-    public GameObject pauseGameMenu;
-    public GameObject rateGameButton;
-
-   
+    [SerializeField] private GameObject _pauseGameMenu;
+    [SerializeField] private GameObject _rateGameButton;
+       
     public void RateGameButton()
     {
         YandexGame.ReviewShow(true);
     }
     public void Resume()
     {
-        pauseGameMenu.SetActive(false);
-        Time.timeScale = 1;
-        PauseGame = false;
+        _pauseGameMenu.SetActive(false);
+        Time.timeScale = 1;        
     }
     public void Pause()
     {
-        pauseGameMenu.SetActive(true);
-        Time.timeScale = 0;
-        PauseGame = true;
+        _pauseGameMenu.SetActive(true);
+        Time.timeScale = 0;        
     }
     public void LosdMenu()
     {

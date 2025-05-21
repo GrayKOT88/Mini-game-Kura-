@@ -4652,7 +4652,6 @@ GameObject:
   - component: {fileID: 430983544}
   - component: {fileID: 430983545}
   - component: {fileID: 430983546}
-  - component: {fileID: 430983549}
   - component: {fileID: 430983547}
   - component: {fileID: 430983548}
   - component: {fileID: 430983543}
@@ -4851,18 +4850,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430983542}
   m_Enabled: 1
---- !u!114 &430983549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430983542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ea6fe5cc836984d80e01718a2d38ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &430983550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4911,7 +4898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2efa44a117b8c42bf8f74f4bb1c95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: {fileID: 11400000, guid: f3f78f528d0f08a4c84ab7690541e899, type: 2}
   _playerAnim: {fileID: 2050158910}
 --- !u!4 &431205558 stripped
 Transform:
@@ -12334,15 +12320,15 @@ MonoBehaviour:
   - {fileID: 953320191}
   - {fileID: 950204110}
   - {fileID: 303122052}
+  _gameOverImage: {fileID: 1317112572}
+  _pauseButton: {fileID: 1692385883}
+  _counterText: {fileID: 1368876979}
+  _counterTextFox: {fileID: 1129629665}
   _scoreManager: {fileID: 938997858}
   _achievementManager: {fileID: 938997857}
   _scoreSaver: {fileID: 938997856}
   _counter: {fileID: 938997852}
   _healthBar: {fileID: 1842220200}
-  _gameOverImage: {fileID: 1317112572}
-  _pauseButton: {fileID: 1692385883}
-  _counterText: {fileID: 1368876979}
-  _counterTextFox: {fileID: 1129629665}
 --- !u!4 &1042892702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6442067900683981980, guid: 5284e19d79f18ca43b024510c85409e2, type: 3}
@@ -15661,9 +15647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df80504ff897ce34c95b3162d7acae12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseGame: 0
-  pauseGameMenu: {fileID: 1722146235}
-  rateGameButton: {fileID: 528873773}
+  _pauseGameMenu: {fileID: 1722146235}
+  _rateGameButton: {fileID: 528873773}
 --- !u!1001 &1345147380
 PrefabInstance:
   m_ObjectHideFlags: 0

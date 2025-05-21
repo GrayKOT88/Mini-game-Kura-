@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class DataInitializer : MonoBehaviour
 {
-    [SerializeField] private PlayerDataSO _playerData;
+    [Inject] private PlayerDataSO _playerData;
 
     private void Awake()
     {        
