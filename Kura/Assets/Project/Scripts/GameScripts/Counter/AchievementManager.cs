@@ -3,28 +3,28 @@ using Zenject;
 
 public class AchievementManager : MonoBehaviour
 {
-    [SerializeField] private GameObject Gold;
-    [SerializeField] private GameObject Silver;
-    [SerializeField] private GameObject Bronze;
+    [Inject(Id = "Gold")] private GameObject _gold;
+    [Inject(Id = "Silver")] private GameObject _silver;
+    [Inject(Id = "Bronze")] private GameObject _bronze;
     [Inject] private AnimalSettings _settings;
 
     public void UpdateMedals(int savedChickens)
     {
-        Gold.SetActive(false);
-        Silver.SetActive(false);
-        Bronze.SetActive(false);
+        _gold.SetActive(false);
+        _silver.SetActive(false);
+        _bronze.SetActive(false);
 
         if (savedChickens >= _settings.Gold)
         {
-            Gold.SetActive(true);
+            _gold.SetActive(true);
         }
         else if (savedChickens >= _settings.Silver)
         {
-            Silver.SetActive(true);
+            _silver.SetActive(true);
         }
         else if (savedChickens >= _settings.Bronze)
         {
-            Bronze.SetActive(true);
+            _bronze.SetActive(true);
         }
     }
 }

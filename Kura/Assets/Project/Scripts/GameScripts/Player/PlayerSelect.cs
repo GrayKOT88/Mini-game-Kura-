@@ -8,17 +8,24 @@ public class PlayerSelect : MonoBehaviour
     private void Start()
     {
         index = PlayerPrefs.GetInt("SelectPlayer");
-        characters = new GameObject[transform.childCount];
-        for(int i = 0; i < transform.childCount; i++)
+        // Получаем все дочерние объекты, кроме первого (индекс 0)
+        characters = new GameObject[transform.childCount - 1];
+        for(int i = 1; i < transform.childCount; i++)
         {
-            characters[i] = transform.GetChild(i).gameObject;            
+            characters[i - 1] = transform.GetChild(i).gameObject;            
         }
-        foreach(GameObject go in characters)
+        foreach(GameObject go in characters)  // Отключаем все модели
         {
             go.SetActive(false);
         }
-        if (characters[index])
+        // Включаем выбранную модель (если индекс в допустимых границах)
+        if (index >= 0 && index < characters.Length)
         {
+            characters[index].SetActive(true);
+        }
+        else // Если индекс некорректный, выбираем первую модель (индекс 0)
+        {            
+            index = 0;
             characters[index].SetActive(true);
         }
     }
@@ -26,7 +33,7 @@ public class PlayerSelect : MonoBehaviour
     {
         characters[index].SetActive(false);
         index--;
-        if (index < 1)
+        if (index < 0)
         {
             index = characters.Length - 1;
         }
@@ -36,9 +43,9 @@ public class PlayerSelect : MonoBehaviour
     {
         characters[index].SetActive(false);
         index++;
-        if (index == characters.Length) 
+        if (index >= characters.Length) 
         {
-            index = 1;
+            index = 0;
         }
         characters[index].SetActive(true);
     }

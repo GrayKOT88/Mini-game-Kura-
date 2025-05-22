@@ -20,6 +20,9 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private GameObject _pauseButton;
     [SerializeField] private TextMeshProUGUI _counterText;
     [SerializeField] private TextMeshProUGUI _counterTextFox;
+    [SerializeField] private GameObject _gold;
+    [SerializeField] private GameObject _silver;
+    [SerializeField] private GameObject _bronze;
     [Header("Классы")]
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private AchievementManager _achievementManager;
@@ -44,6 +47,9 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance(_pauseButton).WithId("PauseButton");
         Container.BindInstance(_counterText).WithId("CounterText");
         Container.BindInstance(_counterTextFox).WithId("CounterTextFox");
+        Container.BindInstance(_gold).WithId("Gold");
+        Container.BindInstance(_silver).WithId("Silver");
+        Container.BindInstance(_bronze).WithId("Bronze");
         // Классы
         Container.BindInstance(_scoreManager);
         Container.BindInstance(_achievementManager);
@@ -53,6 +59,8 @@ public class GameInstaller : MonoInstaller
         // Player-зависимостей
         Container.BindInterfacesAndSelfTo<PlayerHealth>().FromComponentInHierarchy().AsSingle();        
         Container.BindInterfacesAndSelfTo<PlayerMovement>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<PlayerAudio>().FromComponentInHierarchy().AsSingle();                
+        Container.BindInterfacesAndSelfTo<PlayerAudio>().FromComponentInHierarchy().AsSingle();
+        // Регистрация класса SpawnManager
+        Container.BindInterfacesAndSelfTo<SpawnManager>().FromComponentInHierarchy().AsSingle();
     }
 }

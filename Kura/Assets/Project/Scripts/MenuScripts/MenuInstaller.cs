@@ -28,5 +28,9 @@ public class MenuInstaller : MonoInstaller
         Container.BindInstance(_goldMedal).WithId("GoldMedal");
         Container.BindInstance(_silverMedal).WithId("SilverMedal");
         Container.BindInstance(_bronzeMedal).WithId("BronzeMedal");
+
+        // Регистрация классов меню
+        Container.BindInterfacesAndSelfTo<UIMenu>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<DataInitializer>().FromComponentInHierarchy().AsSingle();
     }
 }
