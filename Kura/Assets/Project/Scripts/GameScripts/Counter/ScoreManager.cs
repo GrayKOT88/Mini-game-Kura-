@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -16,11 +17,17 @@ public class ScoreManager : MonoBehaviour
     {
         _countChickens += value;
         _ñounterText.text = " " + _countChickens;
+        _ñounterText.transform.DOKill(); // Îñòàíàâëèâàåì òåêóùóş àíèìàöèş
+        _ñounterText.transform.localScale = Vector3.one; // Ñáğàñûâàåì ìàñøòàá íà 1,1,1
+        _ñounterText.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.3f);
     }
 
     public void AddFoxes(int value)
     {
         _countFoxes += value;
         _ñounterTextFox.text = " " + _countFoxes;
-    }
+        _ñounterTextFox.transform.DOKill(); 
+        _ñounterTextFox.transform.localScale = Vector3.one;
+        _ñounterTextFox.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.3f);
+    }    
 }
