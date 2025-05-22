@@ -9,4 +9,5 @@
  - Добавил систему событий вместо постоянных проверок.
  - Настройки вынес в ScriptableObject.
  - Изменил ИИ лисы с StateMachineBehaviour на классический паттерн Finite State Machine (FSM)
+ - Добавил анимацию для элементов UI через DOTween.
  - 
